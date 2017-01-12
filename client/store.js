@@ -18,6 +18,11 @@ module.exports = function (model) {
       //  })
     },
 
+    changeGreeting: function (greeting) {
+      this.update('appName', greeting)
+
+    },
+
     update: function (key, update) {
       model[key] = update
       console.log('model after update:', model)

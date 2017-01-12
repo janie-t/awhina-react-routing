@@ -11,11 +11,14 @@ module.exports = function (store) {
     switch (e.target.id) {
       case 'submit': 
         console.log('you clicked submit')
-         
-
-        // fire a stor method here
+        // fire a store method here
         // telling the store to update
         break
+      case 'hi-button':
+
+        // could pass information from the event.target
+        // into the store
+        store.changeGreeting(e.target.innerHTML)
 
     }
 

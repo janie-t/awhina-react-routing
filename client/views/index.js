@@ -7,6 +7,7 @@ module.exports = function (model) {
     `<div id="app">
     <h1>My app: ${model.appName}</h1>
       ${form()}
+      <button id="hi-button">Hi</button> 
     </div>`
   )
 }
