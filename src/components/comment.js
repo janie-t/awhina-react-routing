@@ -6,8 +6,8 @@ module.exports = function (props) {
 
   return (
     <div>
-      <p>{author}: </p>
-      <p>{text}</p>
+      <span>{author}: </span>
+      <span>{text}</span>
     </div>
   )
 }

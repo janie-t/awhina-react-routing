@@ -17,9 +17,7 @@ module.exports = function (model) {
 
       //  })
     },
-
-
-
+    
     changeGreeting: function () {
       this.update('appName', 'My React app')
     },
