@@ -1,20 +1,17 @@
-const express = require('express')
-const route = express.Router()
+const express = require("express");
+const route = express.Router();
 
-module.exports = function (db) {
- 
+module.exports = function(db) {
   // GET api/v1/cats/
-  route.get('/', get)
-  route.post('/', post)
+  route.get("/", get);
+  route.post("/", post);
 
-  function get (req, res, next) {
+  function get(req, res, next) {
+    res.json({ data: [ "my", "data" ] });
     // db.get()
   }
-  
-  function post (req, res, next) {
-  }
 
-  return route
-}
+  function post(req, res, next) {}
 
-
+  return route;
+};

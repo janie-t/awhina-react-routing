@@ -1,27 +1,30 @@
-console.log('bundle loads')
+const debug = require('debug')('index')
+const React = require('react')
+const ReactDOM = require('react-dom')
 
-const morphdom = require('morphdom')
-const events = require('./events')
+const App = require('./components/app')
+
 const Store = require('./store')
-const view = require('./views')
 
 const model = {appName: 'Hello'}
 const store = Store(model)
 
 document.addEventListener('DOMContentLoaded', (e) => {
 
-  events(store)
   store.subscribe((model) => {
     console.log('model:', model)
 
-    render()
+    render(store)
   })
 
-  render()
+  render(store)
 
-  function render () {
+  function render (store, model) {
     const root = document.querySelector('#app')
-    morphdom(root, view(model))
+    ReactDOM.render(
+      <App store={store} model={model} />,
+      root
+    )
   }
 
 
