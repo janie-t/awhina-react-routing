@@ -26,7 +26,7 @@ module.exports = function (db) {
 
     lrserver.watch([
       __dirname + "/public",
-      __dirname + "/client",
+      __dirname + "/src",
     ])
     
     app.use(require('inject-lr-script')())
