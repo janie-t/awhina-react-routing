@@ -1,43 +1,25 @@
-# React Shopping Cart
+# React-Redux Shopping Cart
 
 
 ## Spot the difference 
 
-client/ is now src/
-
-entrypoint is src/index.js
-
-model is more complex
-
-No more events.js !
-
-views/ has become components/
-
-React and ReactDOM are now in src/index.js
-
-Self-closing tag
-
-Component names must be Capital Letter!
-
-deestructuring
-
-We've defined our own tag!
-
-No backticks!
-
-HTML tags inside JS!
-
-
-instead of morphdom we use ReactDOM.render
-
-stories folder (not today)
-
-
-
-debug module (maybe)
-
-
 # Morning
+
+##Notes
+
+Spot the difference
+
+JSX linting
+
+redux docs
+
+Redux store setup
+
+Store function ->
+Dispatch action to store and reduce
+
+Reducer
+
 
 0. Decide on User/Job Stories
 
