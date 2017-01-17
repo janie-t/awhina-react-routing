@@ -3,7 +3,7 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const { createStore } = require('redux')
 const reducer = require('./reducer')
-const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default
+const {MuiThemeProvider} = require('material-ui/styles')
 
 // components
 const Parent = require('./components/app')

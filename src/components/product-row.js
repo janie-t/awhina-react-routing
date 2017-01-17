@@ -1,5 +1,5 @@
 const React = require('react')
-import RaisedButton from 'material-ui/RaisedButton';
+const {RaisedButton} = require('material-ui');
 
 module.exports = function (props) {
   const { name, price, stock, id, store } = props
