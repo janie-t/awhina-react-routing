@@ -7,7 +7,10 @@ const CartRow = require('./cart-row')
 
 module.exports = function App (props) {
   console.log('props', props)
-  console.log('state', props.store.getState())
+  const { store, state } = props   
+  const { products, total } = state
+
+  const productsInCart = _.filter(products, (product) => product.quantity)
   
   return (
     <div className="shop">
@@ -22,6 +25,12 @@ module.exports = function App (props) {
             </tr>
           </thead>
           <tbody>
+            { 
+              _.map(products, (product) => {
+                // investigate the spread operator in jsx
+                return <ProductRow {...product} store={store} />
+              }) 
+            }
           </tbody>
         </table>
 
@@ -36,9 +45,14 @@ module.exports = function App (props) {
             </tr>
           </thead>
           <tbody>
+            { 
+              _.map(productsInCart, (product) => (
+                <CartRow {...product} store={store} />
+              ))
+            }
           </tbody>
         </table>
-        <p>Total : $ {0}</p>
+        <p>Total : $ {total}</p>
         <button type="button" name="checkout" id="checkout">checkout</button>
     </div>
   )
