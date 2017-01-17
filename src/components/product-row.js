@@ -1,7 +1,8 @@
 const React = require('react')
+import RaisedButton from 'material-ui/RaisedButton';
 
 module.exports = function (props) {
-  const { name, price, stock, store, id } = props
+  const { name, price, stock, id, store } = props
 
   return (
     <tr>
@@ -9,11 +10,12 @@ module.exports = function (props) {
       <td>$ {price}</td>
       <td>{stock}</td>
       <td>
-        <button 
+        <RaisedButton
+          backgroundColor='#E91E63'
           onClick={() => store.dispatch(addToCart(id))} 
           name="add">
             add
-        </button>
+        </RaisedButton>
       </td>
     </tr>
   )

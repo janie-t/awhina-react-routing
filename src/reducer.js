@@ -7,7 +7,8 @@ const _ = require('lodash')
 //      name: 'banana', 
 //      stock: 2, 
 //      price:2, 
-//      quantity: 0 
+//      quantity: 0,
+//      subtotal: 0
 //     } 
 //  },
 //
@@ -20,7 +21,7 @@ module.exports = function (state, action) {
 
   switch (action.type) {
     case 'ADD_TO_CART':
-      const toAdd = state.products[action.payload]
+      const toAdd = newState.products[action.payload]
 
       toAdd.quantity += 1
       toAdd.subtotal += toAdd.price
@@ -29,6 +30,7 @@ module.exports = function (state, action) {
       newState.total += toAdd.price 
 
       return newState
+
     case 'REMOVE_FROM_CART':
       const toRemove = state.products[action.payload]
 
@@ -37,6 +39,8 @@ module.exports = function (state, action) {
 
       newState.products[action.payload] = toRemove
       newState.total -= toRemove.price 
+
+      return newState
 
     default:
       return newState

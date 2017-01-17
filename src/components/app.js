@@ -11,7 +11,7 @@ module.exports = function App (props) {
   const { products, total } = state
 
   const productsInCart = _.filter(products, (product) => product.quantity)
-  
+
   return (
     <div className="shop">
       <h1>SHOP</h1>

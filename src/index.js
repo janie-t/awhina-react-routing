@@ -3,10 +3,19 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const { createStore } = require('redux')
 const reducer = require('./reducer')
+const MuiThemeProvider = require('material-ui/styles/MuiThemeProvider').default
 
 // components
-const App = require('./components/app')
-const CounterApp = require('./components/counter-app')
+const Parent = require('./components/app')
+
+// what!!!!
+const App = ({state, store}) => {
+  return (
+    <MuiThemeProvider>
+      <Parent state={state} store={store} />
+    </MuiThemeProvider>
+  )
+}
 
 const initialState = {
   products: {
@@ -36,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function render (state) {
     const root = document.querySelector('#app')
     ReactDOM.render(
-      <App state={state} store={store} />,
+      <App store={store} state={state}/>,
       root
     )
   }
