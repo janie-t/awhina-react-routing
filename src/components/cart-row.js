@@ -2,6 +2,8 @@ const React = require('react')
 const { RaisedButton } = require('material-ui');
 
 module.exports = function (props) {
+  // no more store on props
+  // instead just dispatch()
   const { name, quantity, subtotal, id, dispatch } = props
 
   return (
@@ -11,9 +13,10 @@ module.exports = function (props) {
       <td>{subtotal}</td>
       <td>
         <RaisedButton
-          onClick={() => dispatch(removeFromCart(id))} 
-          type="button" 
-          name="remove">remove</RaisedButton>
+          onClick={() => dispatch(removeFromCart(id))}  // dispatch
+          name="remove">
+          remove
+        </RaisedButton>
       </td>
     </tr>
   )

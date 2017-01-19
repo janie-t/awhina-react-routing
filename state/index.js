@@ -1,5 +1,7 @@
+// define initialState here
+// can be useful to require the same state into our tests
+
 module.exports = {
-  routing: {},
   products: {
     1: {
       id: 1, 

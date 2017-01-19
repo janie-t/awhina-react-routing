@@ -20,6 +20,17 @@ const Checkout = require('./components/checkout')
 const store = createStore(reducer, initialState)
 
 
+// routes nested inside parent routes
+// "/"
+//  child ->  "/checkout"
+//  IndexRoute is the default child for that parent
+//
+// <Provider will re-render the app when the state is updated
+// we can now connect to the state and dispatch directly with connect()
+// see components/app.js and components/checkout.js
+
+
+// destructuring in the arguments!!!!
 const Root = ({store}) => {
   return (
     <MuiThemeProvider>

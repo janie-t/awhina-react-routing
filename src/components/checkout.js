@@ -6,7 +6,7 @@ const React = require('react')
 const { connect } = require('react-redux')
 const { Link } = require('react-router')
 
-const App = (props) => {
+const Checkout = (props) => {
   debug({props})
 
   return (
@@ -17,6 +17,6 @@ const App = (props) => {
   )
 }
 
-module.exports = connect((state) => state)(App)
-// App will now have the state and store.dispatch merged into its props
+module.exports = connect((state) => state)(Checkout)
+// Checkout will now have the state and store.dispatch merged into its props
 
