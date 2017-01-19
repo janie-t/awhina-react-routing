@@ -56,7 +56,7 @@ function Shop (props) {
               ))
             }
           </tbody>
-        </table
+        </table>
         <p>Total : $ {total}</p>
         <Link to="/checkout" >
           <RaisedButton name="checkout" id="checkout">

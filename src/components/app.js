@@ -5,7 +5,6 @@ const _ = require('lodash')
 const React = require('react')
 const { connect } = require('react-redux')
 const { AppBar } = require('material-ui')
-const store = require('../store')
 
 const App = (props) => {
   debug({props})

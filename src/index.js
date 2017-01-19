@@ -13,6 +13,8 @@ const { Router, Route, IndexRoute, hashHistory } = require('react-router')
 
 const reducer = require('./reducer')
 const initialState = require('../state')
+
+// top level components
 const App = require('./components/app')
 const Shop = require('./components/shop')
 const Checkout = require('./components/checkout')
