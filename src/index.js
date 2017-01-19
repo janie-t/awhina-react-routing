@@ -50,17 +50,8 @@ const Root = ({store}) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('#app')
-    function render (store) {
-      ReactDOM.render(
-        <Root store={store}/>,
-        root
-      )
-    }
-
-    store.subscribe(() => {
-      render(store)
-    })
-
-    render(store)
-
+    ReactDOM.render(
+      <Root store={store}/>,
+      root
+    )
 })
