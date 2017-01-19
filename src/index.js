@@ -1,54 +1,53 @@
+// logging
 const debug = require('debug')('index')
+localStorage.debug = '*'
+
+// modules
 const React = require('react')
 const ReactDOM = require('react-dom')
+const { Provider } = require('react-redux')
 const { createStore } = require('redux')
+const { MuiThemeProvider } = require('material-ui/styles')
+const createHistory = require('history').createHashHistory
+const { Router, Route, IndexRoute, hashHistory } = require('react-router')
+
 const reducer = require('./reducer')
-const {MuiThemeProvider} = require('material-ui/styles')
+const initialState = require('../state')
+const App = require('./components/app')
+const Shop = require('./components/shop')
+const Checkout = require('./components/checkout')
 
-// components
-const Parent = require('./components/app')
+const store = createStore(reducer, initialState)
 
-// what!!!!
-const App = ({state, store}) => {
+
+const Root = ({store}) => {
   return (
     <MuiThemeProvider>
-      <Parent state={state} store={store} />
+      <Provider store={store} >
+        <Router history={hashHistory} >
+          <Route path="/" component={App} store={store}>
+            <IndexRoute component={Shop} />
+            <Route path="checkout" component={Checkout} />
+          </Route>
+        </Router>
+      </Provider>
     </MuiThemeProvider>
   )
 }
 
-const initialState = {
-  products: {
-    1: {
-      id: 1, 
-      name: 'banana', 
-      stock: 2, 
-      price:2,
-      quantity: 0,
-      subtotal: 0, 
-    } 
-  },
-
-  total: 0
-}
-
-const store = createStore(reducer, initialState)
-
 document.addEventListener('DOMContentLoaded', () => {
+  const root = document.querySelector('#app')
+    function render (store) {
+      ReactDOM.render(
+        <Root store={store}/>,
+        root
+      )
+    }
 
-  store.subscribe(() => {
-    const state = store.getState()
-    console.log('state', state)
-    render(state)
-  })
+    store.subscribe(() => {
+      render(store)
+    })
 
-  function render (state) {
-    const root = document.querySelector('#app')
-    ReactDOM.render(
-      <App store={store} state={state}/>,
-      root
-    )
-  }
+    render(store)
 
-  render(store.getState())
 })

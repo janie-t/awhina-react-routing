@@ -1,18 +1,17 @@
-const debug = require('debug')('components:app')
+const debug = require('debug')('components:checkout')
 const _ = require('lodash')
 
 // modules
 const React = require('react')
 const { connect } = require('react-redux')
-const { AppBar } = require('material-ui')
-const store = require('../store')
+const { Link } = require('react-router')
 
 const App = (props) => {
   debug({props})
 
   return (
     <div>
-      <AppBar title="My Shop" />
+      <Link to="/"> Go Back </Link>
       {props.children}
     </div>
   )

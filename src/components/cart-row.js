@@ -1,7 +1,8 @@
 const React = require('react')
+const { RaisedButton } = require('material-ui');
 
 module.exports = function (props) {
-  const { name, quantity, subtotal, id, store } = props
+  const { name, quantity, subtotal, id, dispatch } = props
 
   return (
     <tr>
@@ -9,10 +10,10 @@ module.exports = function (props) {
       <td>{quantity}</td>
       <td>{subtotal}</td>
       <td>
-        <button 
-          onClick={() => store.dispatch(removeFromCart(id))} 
+        <RaisedButton
+          onClick={() => dispatch(removeFromCart(id))} 
           type="button" 
-          name="remove">remove</button>
+          name="remove">remove</RaisedButton>
       </td>
     </tr>
   )

@@ -1,8 +1,9 @@
+const debug = require('debug')('components:product-row')
 const React = require('react')
 const {RaisedButton} = require('material-ui');
 
 module.exports = function (props) {
-  const { name, price, stock, id, store } = props
+  const { name, price, stock, id, dispatch } = props
 
   return (
     <tr>
@@ -12,7 +13,7 @@ module.exports = function (props) {
       <td>
         <RaisedButton
           backgroundColor='#E91E63'
-          onClick={() => store.dispatch(addToCart(id))} 
+          onClick={() => dispatch(addToCart(id))} 
           name="add">
             add
         </RaisedButton>
