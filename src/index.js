@@ -16,8 +16,8 @@ const initialState = require('../state')
 
 // top level components
 const App = require('./components/app')
-const Shop = require('./components/shop')
-const Checkout = require('./components/checkout')
+const Home = require('./components/home')
+const Display = require('./components/display')
 
 const store = createStore(reducer, initialState)
 
@@ -39,8 +39,8 @@ const Root = ({store}) => {
       <Provider store={store} >
         <Router history={hashHistory} >
           <Route path="/" component={App} store={store}>
-            <IndexRoute component={Shop} />
-            <Route path="checkout" component={Checkout} />
+            <IndexRoute component={Home} />
+            <Route path="display" component={Display} />
           </Route>
         </Router>
       </Provider>

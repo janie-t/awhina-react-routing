@@ -11,7 +11,6 @@ const App = (props) => {
 
   return (
     <div>
-      <AppBar title="My Shop" />
       {props.children}
     </div>
   )
@@ -19,4 +18,3 @@ const App = (props) => {
 
 module.exports = connect((state) => state)(App)
 // App will now have the state and store.dispatch merged into its props
-
