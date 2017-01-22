@@ -1,5 +1,6 @@
-const debug = require('debug')('components:checkout')
+const debug = require('debug')('components:display')
 const _ = require('lodash')
+const { RaisedButton } = require('material-ui')
 
 // modules
 const React = require('react')
@@ -11,9 +12,26 @@ const Display = (props) => {
 
   return (
     <div>
-      <Link to="/"> Go Back </Link>
+
       {props.children}
       <h1>Motivation and Inspiration</h1>
+      <div className="item">
+        Random Media File from database
+      </div>
+      <div className="source">
+        Author or source
+      </div>
+      <RaisedButton className="raisedButton" backgroundColor="pink">
+        Another one
+      </RaisedButton>
+      <div id="mediaChoice">
+        <p>Select the type of media</p>
+        <input type="checkbox" name="choose" value="text" defaultChecked/>Text
+        <input type="checkbox" name="choose" value="image" defaultChecked/>Image
+        <input type="checkbox" name="choose" value="video" defaultChecked/>Video
+      </div>
+
+      <Link to="/"> Go Back </Link>
     </div>
   )
 }

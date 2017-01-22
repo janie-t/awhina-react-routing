@@ -1,4 +1,4 @@
-const debug = require('debug')('components:shop')
+const debug = require('debug')('components:home')
 const React = require('react')
 const _ = require('lodash')
 const { connect } = require('react-redux')
@@ -7,13 +7,13 @@ const { RaisedButton } = require('material-ui')
 
 //components
 
-module.exports = connect((state) => state)(Shop)
+module.exports = connect((state) => state)(Home)
 
-function Shop (props) {
+function Home (props) {
   debug({props})
 
   return (
-    <div className="shop">
+    <div className="home">
     <div className="choose">
       <h1>āwhina</h1>
       <h3>Haere mai ki āwhina | Welcome to āwhina.</h3>
