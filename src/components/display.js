@@ -14,12 +14,12 @@ const Display = (props) => {
     <div>
 
       {props.children}
-      <h1>Motivation and Inspiration</h1>
+      <h1>motivation - from database</h1>
       <div className="item">
         Random Media File from database
       </div>
       <div className="source">
-        Author or source
+        Author or source from database
       </div>
       <RaisedButton className="raisedButton" backgroundColor="pink">
         Another one
