@@ -18,21 +18,10 @@ const initialState = require('../state')
 const App = require('./components/app')
 const Home = require('./components/home')
 const Display = require('./components/display')
+const Help = require('./components/help')
 
 const store = createStore(reducer, initialState)
 
-
-// routes nested inside parent routes
-// "/"
-//  child ->  "/checkout"
-//  IndexRoute is the default child for that parent
-//
-// <Provider will re-render the app when the state is updated
-// we can now connect to the state and dispatch directly with connect()
-// see components/app.js and components/checkout.js
-
-
-// destructuring in the arguments!!!!
 const Root = ({store}) => {
   return (
     <MuiThemeProvider>
@@ -41,6 +30,7 @@ const Root = ({store}) => {
           <Route path="/" component={App} store={store}>
             <IndexRoute component={Home} />
             <Route path="display" component={Display} />
+            <Route path="help" component={Help} />
           </Route>
         </Router>
       </Provider>

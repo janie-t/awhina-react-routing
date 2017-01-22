@@ -27,9 +27,11 @@ function Home (props) {
       </RaisedButton>
     </Link>
 
-    <RaisedButton className="raisedButton" backgroundColor="pink">
-      Helpful links
-    </RaisedButton>
+    <Link to="/help" >
+      <RaisedButton className="raisedButton" backgroundColor="pink">
+        Helpful links
+      </RaisedButton>
+    </Link>
 
     </div>
   )
