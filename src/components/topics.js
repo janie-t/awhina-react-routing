@@ -1,4 +1,4 @@
-const debug = require('debug')('components:display')
+const debug = require('debug')('components:topics')
 const _ = require('lodash')
 const { RaisedButton } = require('material-ui')
 
@@ -9,21 +9,31 @@ const { Link } = require('react-router')
 
 const Display = (props) => {
   debug({props})
+  const { activeTopics } = props
+
+  console.log("topics.js props", props);
 
   return (
     <div>
 
       {props.children}
+
       <h1>motivation - from database</h1>
+
       <div className="item">
-        Random Media File from database
+
+        {randomTopic.map(checkMediaType)}
+
       </div>
+
       <div className="source">
-        Author or source from database
+
       </div>
+
       <RaisedButton className="raisedButton" backgroundColor="pink">
         Another one
       </RaisedButton>
+
       <div id="mediaChoice">
         <p>Select the type of media</p>
         <input type="checkbox" name="choose" value="text" defaultChecked/>Text
@@ -32,9 +42,28 @@ const Display = (props) => {
       </div>
 
       <Link to="/"> Go Back </Link>
+
     </div>
   )
 }
+
+function checkMediaType(topic){
+  if({topic.media_type = "image"}){
+    function renderImageTopic(topic){
+      return (
+        <img src ={topic.content} />
+      )
+    }
+  } else if ({topic.media_type = "video"}){
+    function renderVideoTopic(topic){
+      return (
+        <iframe width="100%" height="300px" src={topic.content} frameborder="0" allowfullscreen></iframe>
+      )
+    }
+  }
+}
+
+
 
 module.exports = connect((state) => state)(Display)
 // Checkout will now have the state and store.dispatch merged into its props

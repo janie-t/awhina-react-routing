@@ -8,7 +8,7 @@ module.exports = function(db) {
 
   function get(req, res, next) {
 
-    db.find('timetable')
+    db.find('topics')
       .then((rows) => {
         res.json({data: rows})
       })

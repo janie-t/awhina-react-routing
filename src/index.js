@@ -10,6 +10,7 @@ const { createStore } = require('redux')
 const { MuiThemeProvider } = require('material-ui/styles')
 const createHistory = require('history').createHashHistory
 const { Router, Route, IndexRoute, hashHistory } = require('react-router')
+const request = require('superagent')
 
 const reducer = require('./reducer')
 const initialState = require('../state')
@@ -17,7 +18,7 @@ const initialState = require('../state')
 // top level components
 const App = require('./components/app')
 const Home = require('./components/home')
-const Display = require('./components/display')
+const Topics = require('./components/topics')
 const Help = require('./components/help')
 
 const store = createStore(reducer, initialState)
@@ -29,7 +30,7 @@ const Root = ({store}) => {
         <Router history={hashHistory} >
           <Route path="/" component={App} store={store}>
             <IndexRoute component={Home} />
-            <Route path="display" component={Display} />
+            <Route path="topics" component={Topics} />
             <Route path="help" component={Help} />
           </Route>
         </Router>
@@ -44,4 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
       <Root store={store}/>,
       root
     )
+    request.get('/api/v1/topics').end(function(err,res){
+      console.log("index.js resbody", res.body);
+      store.dispatch({type: 'UPDATE_DATA', payload: res.body})
+    })
+
+
+
 })

@@ -21,7 +21,7 @@ function Home (props) {
       <p>He aha tō hiahia i tenei rā? | What do you need today?</p>
     </div>
 
-    <Link to="/display" >
+    <Link to="/topics" >
       <RaisedButton name="motivation" id="topic" backgroundColor="#adbce6" className="raisedButton">
         Motivation
       </RaisedButton>
