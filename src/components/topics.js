@@ -7,23 +7,25 @@ const React = require('react')
 const { connect } = require('react-redux')
 const { Link } = require('react-router')
 
-const Display = (props) => {
+const Topics = (props) => {
   debug({props})
-  const { activeTopics } = props
+  const { Content } = props
 
   console.log("topics.js props", props);
+
+  const keys = Object.keys(props.randomTopic)
+  console.log("keys", keys);
+
 
   return (
     <div>
 
       {props.children}
 
-      <h1>motivation - from database</h1>
+      <h1>Motivation</h1>
 
       <div className="item">
-
-        {randomTopic.map(checkMediaType)}
-
+        
       </div>
 
       <div className="source">
@@ -46,24 +48,33 @@ const Display = (props) => {
     </div>
   )
 }
+  // function objKeys(store){
+  //   const arr = Object.keys(store)
+  //   return arr
+  // }
 
-function checkMediaType(topic){
-  if({topic.media_type = "image"}){
-    function renderImageTopic(topic){
-      return (
-        <img src ={topic.content} />
-      )
-    }
-  } else if ({topic.media_type = "video"}){
-    function renderVideoTopic(topic){
-      return (
-        <iframe width="100%" height="300px" src={topic.content} frameborder="0" allowfullscreen></iframe>
-      )
-    }
-  }
-}
+  // function Item(props){
+  //   console.log('topics.js items', props);
+  // }
 
 
+// function checkMediaType(topic){
+//   if({topic.media_type = "image"}){
+//     function renderImageTopic(topic){
+//       return (
+//         <img src ={topic.content} />
+//       )
+//     }
+//   } else if ({topic.media_type = "video"}){
+//     function renderVideoTopic(topic){
+//       return (
+//         <iframe width="100%" height="300px" src={topic.content} frameborder="0" allowfullscreen></iframe>
+//       )
+//     }
+//   }
+// }
 
-module.exports = connect((state) => state)(Display)
+
+
+module.exports = connect((state) => state)(Topics)
 // Checkout will now have the state and store.dispatch merged into its props
